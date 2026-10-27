@@ -1,38 +1,22 @@
-<section class="catalog page-width">
-  <div class="intro">
-    <p class="eyebrow">CURADORIA TECHSTORE</p>
-    <h1>Tecnologia que acompanha você.</h1>
-    <p class="subtitle">
-      Explore nossa seleção de produtos para trabalhar, criar e aproveitar cada momento.
-    </p>
+<section class="catalogo">
+  <div class="introducao">
+    <p class="etiqueta">NOSSA SELEÇÃO</p>
+    <h1>Encontre seu próximo favorito</h1>
+    <p>Veja os produtos e escolha um para conhecer melhor.</p>
   </div>
 
-  <div class="catalog-heading">
-    <div>
-      <h2>Produtos em destaque</h2>
-      <p>{{ produtos.length }} itens selecionados</p>
-    </div>
-  </div>
+  <h2>Produtos disponíveis <span>({{ produtos.length }})</span></h2>
 
-  <div class="product-grid">
+  <div class="lista-produtos">
     @for (produto of produtos; track produto.id) {
-      <article class="product-card">
-        <a
-          class="product-image-link"
-          [routerLink]="['/produto', produto.id]"
-          [attr.aria-label]="'Ver detalhes de ' + produto.nome"
-        >
-          <img [src]="produto.imagem" [alt]="produto.nome" />
-          <span class="category">{{ produto.categoria }}</span>
-        </a>
-        <div class="product-info">
-          <p class="product-category">{{ produto.categoria }}</p>
+      <article class="produto">
+        <img [src]="produto.imagem" [alt]="produto.nome" />
+        <div class="informacoes">
+          <span class="categoria">{{ produto.categoria }}</span>
           <h3>{{ produto.nome }}</h3>
-          <div class="product-bottom">
-            <p class="price">{{ produto.preco | currency: 'BRL' }}</p>
-            <a class="details-link" [routerLink]="['/produto', produto.id]">
-              Ver <span aria-hidden="true">+</span>
-            </a>
+          <div class="rodape-produto">
+            <p>{{ produto.preco | currency: 'BRL' }}</p>
+            <a [routerLink]="['/produto', produto.id]">Ver detalhes <span>→</span></a>
           </div>
         </div>
       </article>
