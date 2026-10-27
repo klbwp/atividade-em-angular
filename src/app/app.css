@@ -1,0 +1,75 @@
+:host {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.site-header {
+  align-items: center;
+  border-bottom: 1px solid #e8ebf1;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem max(1.5rem, calc((100% - 1120px) / 2));
+}
+
+.brand {
+  align-items: center;
+  color: #172033;
+  display: inline-flex;
+  font-size: 1.15rem;
+  font-weight: 800;
+  gap: 0.6rem;
+  letter-spacing: -0.04em;
+  text-decoration: none;
+}
+
+.brand-mark {
+  align-items: center;
+  background: #5b62e8;
+  border-radius: 0.65rem;
+  color: white;
+  display: inline-flex;
+  height: 2rem;
+  justify-content: center;
+  width: 2rem;
+}
+
+.brand-accent {
+  color: #5b62e8;
+}
+
+.header-note {
+  color: #72798a;
+  font-size: 0.875rem;
+}
+
+main {
+  flex: 1;
+}
+
+.site-footer {
+  align-items: center;
+  border-top: 1px solid #e8ebf1;
+  color: #7a8090;
+  display: flex;
+  font-size: 0.8rem;
+  justify-content: space-between;
+  padding: 1.25rem max(1.5rem, calc((100% - 1120px) / 2));
+}
+
+.site-footer span:first-child {
+  color: #343a4b;
+  font-weight: 700;
+}
+
+@media (max-width: 520px) {
+  .header-note {
+    display: none;
+  }
+
+  .site-header,
+  .site-footer {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}

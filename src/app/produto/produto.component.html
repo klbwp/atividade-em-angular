@@ -1,0 +1,66 @@
+<section class="detail page-width">
+  <a class="back-link" routerLink="/">
+    <span aria-hidden="true">←</span> Voltar para produtos
+  </a>
+
+  @if (produto; as item) {
+    <article class="product-detail">
+      <div class="image-panel">
+        <img [src]="item.imagem" [alt]="item.nome" />
+        <span class="category">{{ item.categoria }}</span>
+      </div>
+
+      <div class="product-content">
+        <p class="eyebrow">PRODUTO #{{ item.id }}</p>
+        <p class="product-category">{{ item.categoria }}</p>
+        <h1>{{ item.nome }}</h1>
+        <p class="description">{{ item.descricao }}</p>
+
+        <p class="price">{{ item.preco | currency: 'BRL' }}</p>
+
+        <div class="stock">
+          <span class="stock-indicator" aria-hidden="true"></span>
+          <span>{{ item.quantidadeDisponivel }} unidades disponíveis</span>
+        </div>
+
+        <dl class="specifications">
+          <div>
+            <dt>Identificador</dt>
+            <dd>{{ item.id }}</dd>
+          </div>
+          <div>
+            <dt>Nome</dt>
+            <dd>{{ item.nome }}</dd>
+          </div>
+          <div>
+            <dt>Preço</dt>
+            <dd>{{ item.preco | currency: 'BRL' }}</dd>
+          </div>
+          <div>
+            <dt>Categoria</dt>
+            <dd>{{ item.categoria }}</dd>
+          </div>
+          <div>
+            <dt>Imagem</dt>
+            <dd><a [href]="item.imagem" target="_blank" rel="noopener noreferrer">Abrir imagem</a></dd>
+          </div>
+          <div>
+            <dt>Descrição</dt>
+            <dd>{{ item.descricao }}</dd>
+          </div>
+          <div>
+            <dt>Quantidade disponível</dt>
+            <dd>{{ item.quantidadeDisponivel }} unidades</dd>
+          </div>
+        </dl>
+      </div>
+    </article>
+  } @else {
+    <div class="not-found">
+      <p class="eyebrow">PRODUTO NÃO ENCONTRADO</p>
+      <h1>Não encontramos esse produto.</h1>
+      <p>Confira o endereço ou volte ao catálogo para escolher outro item.</p>
+      <a class="catalog-button" routerLink="/">Voltar ao catálogo</a>
+    </div>
+  }
+</section>
